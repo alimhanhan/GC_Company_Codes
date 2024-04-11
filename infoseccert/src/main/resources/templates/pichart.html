@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart</title>
+    <style>
+        .chartWrap{
+            display: flex;
+            justify-content: space-between;
+            width: 1200px; /* 그래프 간격을 조정할 수 있음 */
+            margin: 100px auto; /* 가운데 정렬 */
+        }
+        .chart {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            transition: 0.3s;
+            background: lightgray;
+            display: inline-block;
+        }
+        .chart:after{
+            content:'';
+            background: #fff;
+            position: absolute;
+            top:50%; left:50%;
+            width: 160px; /* 그래프 크기에 따라 조정 가능 */
+            height: 160px; /* 그래프 크기에 따라 조정 가능 */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .chart-bar{
+            width: inherit;
+            height: inherit;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .chart-total{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: gray;
+            width: 100%;
+        }
+        .chart-total span{
+            position: absolute;
+            color: #777;
+        }
+        .chart-total-num{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .chart-total-text1{
+            top: -150px; right: -10px;
+        }
+        .chart-total-text2{
+            top: -50px; right: -70px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chartWrap">
+    <div class="chart" style="background: conic-gradient(#C0C0C0 30deg, #FFCCCC 30deg 100deg);">
+        <div class="chart-bar" data-deg="30"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 30%</span>
+            <span class="chart-total-text2">진행률 - 70%</span>
+        </div>
+    </div>
+
+    <div class="chart" style="background: conic-gradient(#C0C0C0 50deg, #FFFFCC 50deg 100deg);">
+        <div class="chart-bar" data-deg="50"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 50%</span>
+            <span class="chart-total-text2">진행률 - 50%</span>
+        </div>
+    </div>
+
+    <div class="chart" style="background: conic-gradient(#C0C0C0 20deg, #CCFFFF 20deg 100deg);">
+        <div class="chart-bar" data-deg="20"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 10%</span>
+            <span class="chart-total-text2">진행률 - 80%</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
