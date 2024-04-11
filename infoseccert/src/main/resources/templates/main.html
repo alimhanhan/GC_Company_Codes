@@ -66,6 +66,40 @@
         .btn:hover {
             background-color: transparent;
         }
+
+        .sidebar {
+            position: fixed;
+            top: 60px; /* Header의 하단에 배치 */
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #FFFFFF; /* 흰색 배경색 지정 */
+            padding-top: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 20px;
+            color: #F7313E; /* 메뉴 텍스트 색상 변경 */
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #555;
+            cursor: pointer;
+        }
+
+        .sidebar ul li i {
+            margin-right: 10px;
+            color: #F7313E; /* 아이콘 색상 변경 */
+        }
+
+
     </style>
 </head>
 <body>
@@ -85,6 +119,15 @@
         </div>
     </div>
 </div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <ul>
+        <li><i class="bi bi-file-earmark"></i>보안인증관리 &gt;</i></li>
+        <li><i class="bi bi-search"></i>로그 관리 &gt;</li>
+    </ul>
+</div>
+
 </body>
 
 <script src="/js/library/jquery.min.js"></script>
