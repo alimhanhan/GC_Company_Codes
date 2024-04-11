@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .header {
+            height: 60px;
+            background: #F7313E;
+        }
+
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            max-height: 30px;
+            vertical-align: middle;
+            margin-left: 30px;
+        }
+
+        .dropdown {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+        }
+
+        .btn {
+            color: white;
+            font-size: 13px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 0, 0, 0.1); /* 아주 연한 적색 */
+        }
+
+        .bi-person {
+            font-size: 18px;
+        }
+
+        .btn:hover span {
+            transform: scale(5.1);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover .bi-person {
+            transform: scale(5.1);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover .dropdown-content {
+            transform: scale(5.1);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="section">
+        <div class="logo">
+            <a href="/"><img src="../static/images/logo.jpg" alt="logo"></a>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary logout dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>Leona(레오나) 한아림</span>
+                <i class="bi bi-person custom-icon"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#" onclick="logout()">로그아웃</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="/js/library/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/library/bootstrap.bundle.min.js"></script>
+<script src="/js/sidebars.js"></script>
+<script>
+    // 로그아웃 기능
+    function logout() {
+        alert("로그아웃 되었습니다.");
+        // 로그아웃 기능을 실행하고 싶은 코드를 여기에 추가하세요.
+    }
+
+    // 페이지 로딩 시 알림
+    window.onload = function() {
+        alert("로그인에 성공하셨습니다");
+    };
+
+    // 드롭다운 초기화
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+</script>
+</html>
