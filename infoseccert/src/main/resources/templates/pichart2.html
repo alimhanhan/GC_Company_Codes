@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart</title>
+    <style>
+        .chartWrap{
+            display: flex;
+            justify-content: space-between;
+            width: 1100px; /* 그래프 간격을 조정할 수 있음 */
+            margin: 100px auto; /* 가운데 정렬 */
+        }
+        .chart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transition: 0.3s;
+            background: lightgray;
+            display: inline-block;
+        }
+        .chart:after{
+            content:'';
+            background: #fff;
+            position: absolute;
+            top:50%; left:50%;
+            width: 160px; /* 그래프 크기에 따라 조정 가능 */
+            height: 160px; /* 그래프 크기에 따라 조정 가능 */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .chart-bar{
+            width: inherit;
+            height: inherit;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .chart-total{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: gray;
+            width: 100%;
+        }
+        .chart-total span{
+            position: absolute;
+            color: #777;
+        }
+        .chart-total-num{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .chart-total-text1{
+            top: -150px; right: -10px;
+        }
+        .chart-total-text2{
+            top: -50px; right: -70px;
+        }
+
+        /* pichart2.html */
+        .line-chart-container {
+            margin-top: 10px;
+            text-align: center;
+            width: 800px; /* 고정된 가로 크기 */
+            height: 400px; /* 고정된 세로 크기 */
+            margin: 0 auto; /* 가운데 정렬 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="chartWrap">
+    <div class="chart" style="background: conic-gradient(#C0C0C0 30deg, #FFCCCC 30deg 100deg);">
+        <div class="chart-bar" data-deg="30"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 30%</span>
+            <span class="chart-total-text2">진행률 - 70%</span>
+        </div>
+    </div>
+
+    <div class="chart" style="background: conic-gradient(#C0C0C0 50deg, #FFFFCC 50deg 100deg);">
+        <div class="chart-bar" data-deg="50"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 50%</span>
+            <span class="chart-total-text2">진행률 - 50%</span>
+        </div>
+    </div>
+
+    <div class="chart" style="background: conic-gradient(#C0C0C0 20deg, #CCFFFF 20deg 100deg);">
+        <div class="chart-bar" data-deg="20"></div>
+        <div class="chart-total">
+            <span class="chart-total-num">Total:<br> 100%</span>
+            <span class="chart-total-text1">미진행률 - 10%</span>
+            <span class="chart-total-text2">진행률 - 80%</span>
+        </div>
+    </div>
+</div>
+
+<!-- pichart2.html -->
+<div class="line-chart-container">
+    <canvas id="lineChartCanvas"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // 라인 그래프 데이터
+    var lineChartData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: '개인정보보호',
+            borderColor: 'rgb(252,140,140)',
+            data: [10, 20, 30, 40, 50, 55, 70],
+        }]
+    };
+
+    var lineChartData2 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: '관리 체계',
+            borderColor: 'rgb(250,246,30)',
+            data: [0, 40, 48, 55, 66, 55, 99],
+        }]
+    };
+
+    var lineChartData3 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: '보호 대책',
+            borderColor: 'rgb(92,215,18)',
+            data: [30, 44, 50, 59, 64, 66, 78],
+        }]
+    };
+
+    // 라인 그래프 생성
+    var ctx = document.getElementById('lineChartCanvas').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [lineChartData.datasets[0], lineChartData2.datasets[0], lineChartData3.datasets[0]], // 수정된 부분
+            labels: lineChartData.labels
+        },
+        options: {
+            animation: {
+                duration: 0
+            },
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            },
+
+            plugins: {
+                title: {
+                    display: true,
+                    text: '월간 인증 진척률 추이',
+                    position: 'top',
+                    color: '#F7313E',
+                    font: {
+                        size: 25
+                    }
+                }
+            },
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
