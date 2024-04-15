@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>관리체계 수립 및 운영</title>
+    <th:block th:replace="fragments/head :: common-head"></th:block>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<main class="d-flex flex-nowrap">
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+    <div class="content p-4 main-contents" style="overflow-y: scroll">
+        <table>
+            <tr>
+                <th class="col-1" rowspan="2">구분</th>
+                <th class="col-1" rowspan="2">세부항목</th>
+                <th class="col-1" colspan="2">심사구분</th>
+                <th class="col-1" rowspan="2"></th>
+            </tr>
+            <tr>
+                <th class="col-1" >ISO 27001/27017/27018/27701</th>
+                <th class="col-1" >ISO PCI-DSS</th>
+            </tr>
+            <tr>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px; text-align: center; vertical-align: middle;">
+                    <button type="button" class="default-button btn-primary d-block mx-auto">수정</button>
+                </td>
+
+            </tr>
+            <tr>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px; text-align: center; vertical-align: middle;">
+                    <button type="button" class="default-button btn-primary d-block mx-auto">수정</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px; text-align: center; vertical-align: middle;">
+                    <button type="button" class="default-button btn-primary d-block mx-auto">수정</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px;"></td>
+                <td style="height: 200px; text-align: center; vertical-align: middle;">
+                    <button type="button" class="default-button btn-primary d-block mx-auto">수정</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</main>
+</body>
+
+</html>

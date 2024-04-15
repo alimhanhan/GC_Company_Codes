@@ -1,0 +1,38 @@
+<div th:fragment="sidebar" class="flex-shrink-0 p-3 bg-white nav-bar">
+    <ul class="list-unstyled ps-0">
+        <div class="accordion accordion-flush" id="menuList">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#flush-collapse0" aria-controls="flush-collapse0">
+                        <img src="/images/menu_1.svg" style="margin-right: 12px">
+                        보안인증관리
+                    </button>
+                </h2>
+                <div id="flush-collapse0" class="accordion-collapse collapse" data-bs-parent="#menuList">
+                    <ul class="btn-toggle-nav list-unstyled pb-1" style="margin-left: 40px">
+                        <li>
+                            <a href="/management-system" class="link-dark d-inline-flex text-decoration-none rounded accordion-body"> 관리체계 수립 및 운영 </a>
+                        </li>
+                        <li>
+                            <a href="/security-measures" class="link-dark d-inline-flex text-decoration-none rounded accordion-body"> 보호대책 요구사항 </a>
+                        </li>
+                        <li>
+                            <a href="/privacy-requirements" class="link-dark d-inline-flex text-decoration-none rounded accordion-body"> 개인정보 처리단계별 요구사항 </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <a href="/log-management" class="accordion-button collapsed d-inline-flex text-decoration-none rounded" aria-expanded="false">
+                        <img src="/images/menu_2.svg" style="margin-right: 12px"> 로그관리
+                    </a>
+                </h2>
+                <div id="flush-collapse1" class="accordion-collapse collapse" data-bs-parent="#menuList">
+                    <ul class="btn-toggle-nav list-unstyled pb-1" style="margin-left: 40px">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
