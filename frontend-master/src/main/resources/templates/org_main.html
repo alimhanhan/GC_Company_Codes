@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <script src="/js/library/jquery.min.js"></script>
+    <script src="/js/library/bootstrap.bundle.min.js"></script>
+    <script src="/js/sidebars.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no" name="viewport">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebars.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>샘플 페이지</title>
+  </head>
+
+  <body>
+    <div class="header" style="background: #FB4753;">
+      <div class="section" style="align-items: center;">
+        <div class="logo">
+          <a href="/"><img src="/images/logo.svg" alt="logo"></a>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: #FB4753; border: none; font-size: 13px">
+            <span>임직원 이름</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="d-flex flex-nowrap">
+      <div class="flex-shrink-0 p-3 bg-white nav-bar">
+        <ul class="list-unstyled ps-0">
+          <div class="accordion accordion-flush" id="menuList">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#flush-collapse0" aria-controls="flush-collapse0">
+                  <img src="/images/menu_1.svg" style="margin-right: 12px">
+                  대메뉴1
+                </button>
+              </h2>
+              <div id="flush-collapse0" class="accordion-collapse collapse" data-bs-parent="#menuList">
+                <ul class="btn-toggle-nav list-unstyled pb-1" style="margin-left: 40px">
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴1
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴2
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴3
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴4
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴5
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#flush-collapse1" aria-controls="flush-collapse1">
+                  <img src="/images/menu_2.svg" style="margin-right: 12px">
+                  대메뉴2
+                </button>
+              </h2>
+              <div id="flush-collapse1" class="accordion-collapse collapse" data-bs-parent="#menuList">
+                <ul class="btn-toggle-nav list-unstyled pb-1" style="margin-left: 40px">
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴1
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴2
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴3
+                    </a>
+                  </li>
+                  <li>
+                    <a class="link-dark d-inline-flex text-decoration-none rounded accordion-body">
+                      소메뉴4
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <div class="content p-4 main-contents" style="overflow-y: scroll">
+        테스트
+      </div>
+
+    </main>
+
+  </body>
+</html>

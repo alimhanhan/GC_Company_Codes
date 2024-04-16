@@ -1,0 +1,232 @@
+@import url("https://static.goodchoice.kr/static/ui/icon/iconPack.css");
+@import url("https://static.goodchoice.kr/fonts/jalnan/font.css");
+
+@font-face {
+  font-family: '나눔스퀘어_ac';
+  src: url('fonts/NanumSquareOTF_acR.otf') format('opentype');
+}
+
+@font-face {
+  font-family: '나눔스퀘어_bold';
+  src: url('fonts/NanumSquareEB.otf') format('opentype');
+}
+
+:root {
+  --point-color: #E22D39;
+}
+
+body {
+  background-color:#f6f6f6;
+  font-family:'나눔스퀘어_ac' !important;
+  color:rgba(0,0,0,0.87);
+  line-height:1.5;
+  overflow: hidden;
+}
+
+.mt-5 {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+
+th {
+  border-radius: 1px 0px 0px 0px;
+  border: 1px solid #F4F4F4;
+  background-color:  rgba(241, 90, 89, 0.28) !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td {
+  border: 1px solid #F4F4F4;
+  background-color: #FFF !important;
+}
+
+button {
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  outline: 0;
+}
+
+.default-button {
+  width: 130px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid var(--point-color);
+  background: #FFF;
+  color: var(--point-color);
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.225px;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+.bg-light {
+  border-radius: 1px 0px 0px 0px;
+  border: 1px solid #F4F4F4;
+  background-color:  rgba(241, 90, 89, 0.28) !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/*sub title 앞에 아이콘*/
+.form-title img{
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+}
+
+/*표 제목*/
+.table_name {
+  color: var(--point-color);
+  text-align: center;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.27px;
+  margin-left: 5px;
+}
+
+/*가이드라인 박스*/
+.guidebox {
+  border: 1px solid #818181;
+  padding: 10px 30px;
+  line-height: 200%;
+  margin-bottom: 1rem;
+}
+
+/*달력 관련 css*/
+.icon-baseline-calendar_today-24px:before{
+  content:"\e92b"
+}
+
+.icon-pack li{
+  display:inline-block;
+  width:60px;
+  height:60px;
+  margin-bottom:10px;
+  text-align:center;
+  font-size:30px;
+  line-height:60px;
+  background:rgba(0,0,0,0.12);
+  cursor:pointer
+}
+.icon-pack li input{
+  position:absolute;
+  top:-9999px;
+  left:0;
+  opacity:0
+}
+[class^="icon-"],[class*=" icon-"]{
+  font-family:'icomoon' !important;
+  speak:none;
+  font-style:normal;
+  font-weight:normal;
+  font-variant:normal;
+  text-transform:none;
+  line-height:1;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+/*날짜선택을 위한 달력*/
+.input-group-prepend{
+  height:38px !important
+}
+
+.input-group-prepend{
+  border:1px solid rgba(0,0,0,0.15);
+  border-right:0;
+  border-radius:.25rem 0 0 .25rem;
+  background:#e9ecef;
+  color:#495057;
+  text-align:center
+}
+
+.input-group-prepend i{
+  display:inline-block;
+  position:relative;
+  width:36px;
+  font-size:16px;
+  line-height:35px
+}
+
+/*에러페이지*/
+.error-page {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.error-page p {
+  margin-bottom: 5px;
+  font-size: 22px;
+  color: rgba(0,0,0,0.87);
+}
+
+.error-page strong {
+  display: block;
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+.font-jalnan {
+  font-family: 'yg-jalnan';
+}
+.text-warning {
+  color: #fb3 !important;
+}
+
+.text-warning {
+  color: #ffc107!important;
+}
+
+.error-page button {
+  min-width: 140px;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.btn-rounded {
+  border-radius: 50px !important;
+}
+
+.btn-outline-secondary {
+  border-color: #61738f;
+  color: #61738f;
+}
+
+/*top에 있는 로그인 사용자 부분 버튼화한 것*/
+.btn {
+  display: inline-block;
+  padding: 9px 16px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/*표 제목 디자인*/
+.form-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/*표 안 텍스트 위치설정*/
+.text-center{
+  text-align:center;
+  vertical-align: middle;
+}
