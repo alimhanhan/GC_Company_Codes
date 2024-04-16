@@ -1,18 +1,183 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>메인 페이지</title>
-    <th:block th:replace="fragments/head :: common-head"></th:block>
-  </head>
-  <body>
-  <div th:replace="fragments/header :: header"></div>
+<head>
+  <title>메인 페이지</title>
+  <th:block th:replace="fragments/head :: common-head"></th:block>
+  <style>
+    .chart-container {
+      flex: 1;
+      padding: 0 10px;
+      margin-top: 20px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+  </script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
 
-  <main class="d-flex flex-nowrap">
-    <div th:replace="fragments/sidebar :: sidebar"></div>
-    <div class="content p-4 main-contents" style="overflow-y: scroll">
-      hello
+<main class="d-flex flex-nowrap">
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+  <div class="content p-4 main-contents" style="overflow-y: scroll">
+    <div class="header-container">
+      <h1 style="color: red; font-size: 24px;">Dash Board</h1>
+      
+      <!-- "대시 보드" 옆에 Datepicker 추가 -->
+      <p>날짜: <input type="text" id="datepicker"></p>
     </div>
-  </main>
-  </body>
 
+    <div style="display: flex; justify-content: space-between; max-width: 100%;">
+
+      <!-- 첫 번째 차트 -->
+      <div class="chart-container">
+        <canvas id="myChart1" style="max-width: 100%;"></canvas>
+      </div>
+
+      <!-- 두 번째 차트 -->
+      <div class="chart-container">
+        <canvas id="myChart2" style="max-width: 100%;"></canvas>
+      </div>
+
+      <!-- 3 번째 차트 -->
+      <div class="chart-container">
+        <canvas id="myChart3" style="max-width: 100%;"></canvas>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const data1 = {
+          labels: [
+            '진행율',
+            '미진행율',
+          ],
+          datasets: [{
+            label: '관리체제 수립 및 운영',
+            data: [80, 20],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(141,138,138)',
+            ],
+            hoverOffset: 4,
+          }]
+        };
+
+        const config1 = {
+          type: 'doughnut',
+          data: data1,
+          options: {
+            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            plugins: {
+              title: {
+                display: true,
+                text: '관리체제 수립 및 운영',
+                font: {
+                  size: 16
+                }
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        };
+
+        const data2 = {
+          labels: [
+            '진행율',
+            '미진행율',
+          ],
+          datasets: [{
+            label: '보호대책 요구사항',
+            data: [90, 10],
+            backgroundColor: [
+              'rgb(255, 205, 86)',
+              'rgb(141,138,138)',
+            ],
+            hoverOffset: 4
+          }]
+        };
+
+        const config2 = {
+          type: 'doughnut',
+          data: data2,
+          options: {
+            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            plugins: {
+              title: {
+                display: true,
+                text: '보호대책 요구사항',
+                font: {
+                  size: 16
+                }
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        };
+
+        const data3 = {
+          labels: [
+            '진행율',
+            '미진행율',
+          ],
+          datasets: [{
+            label: '개인정보 처리단계별 요구사항',
+            data: [72, 28],
+            backgroundColor: [
+              'rgb(149,239,131)',
+              'rgb(141,138,138)',
+            ],
+            hoverOffset: 4
+          }]
+        };
+
+        const config3 = {
+          type: 'doughnut',
+          data: data3,
+          options: {
+            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            plugins: {
+              title: {
+                display: true,
+                text: '개인정보 처리단계별 요구사항',
+                font: {
+                  size: 16
+                }
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        };
+
+        var ctx1 = document.getElementById('myChart1').getContext('2d');
+        new Chart(ctx1, config1);
+
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        new Chart(ctx2, config2);
+
+        var ctx3 = document.getElementById('myChart3').getContext('2d');
+        new Chart(ctx3, config3);
+      });
+    </script>
+
+  </div>
+</main>
+</body>
 </html>
