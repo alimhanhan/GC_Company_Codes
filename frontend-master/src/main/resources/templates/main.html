@@ -4,14 +4,33 @@
   <title>메인 페이지</title>
   <th:block th:replace="fragments/head :: common-head"></th:block>
   <style>
+    .header-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #datepicker-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #datepicker {
+      margin-right: 10px; /* Datepicker 오른쪽 여백 설정 */
+    }
+
+    .search-button {
+      border: 1px solid red;
+      background-color: transparent;
+      color: red;
+      padding: 3px 12px;
+      cursor: pointer;
+      border-radius: 5px; /* 모서리를 10픽셀만큼 둥글게 설정 */
+    }
+
     .chart-container {
       flex: 1;
       padding: 0 10px;
       margin-top: 20px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
-    }
-    .header-container {
-      display: flex;
-      align-items: center;
     }
   </style>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -21,6 +40,13 @@
     $( function() {
       $( "#datepicker" ).datepicker();
     } );
+
+    // 추가된 JavaScript: 검색 버튼 클릭 시 datepicker를 열도록 설정
+    $( function() {
+      $( ".search-button" ).click( function() {
+        $( "#datepicker" ).datepicker( "show" );
+      });
+    });
   </script>
 </head>
 <body>
@@ -31,9 +57,10 @@
   <div class="content p-4 main-contents" style="overflow-y: scroll">
     <div class="header-container">
       <h1 style="color: red; font-size: 24px;">Dash Board</h1>
-      
-      <!-- "대시 보드" 옆에 Datepicker 추가 -->
-      <p>날짜: <input type="text" id="datepicker"></p>
+      <div id="datepicker-container">
+        <input type="text" id="datepicker">
+        <button class="search-button" type="button">검색</button>
+      </div>
     </div>
 
     <div style="display: flex; justify-content: space-between; max-width: 100%;">
@@ -78,7 +105,7 @@
           type: 'doughnut',
           data: data1,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            cutout: 90, // 도넛의 두께를 조절하는 옵션
             plugins: {
               title: {
                 display: true,
@@ -114,7 +141,7 @@
           type: 'doughnut',
           data: data2,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            cutout: 90, // 도넛의 두께를 조절하는 옵션
             plugins: {
               title: {
                 display: true,
@@ -150,7 +177,7 @@
           type: 'doughnut',
           data: data3,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션
+            cutout: 90, // 도넛의 두께를 조절하는 옵션
             plugins: {
               title: {
                 display: true,
