@@ -31,6 +31,42 @@
       flex: 1;
       padding: 0 10px;
       margin-top: 20px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
+      text-align: center; /* 그래프 아래에 텍스트 중앙 정렬 */
+    }
+
+    .line-container {
+      margin-top: 90px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
+      text-align: center; /* 그래프 아래에 텍스트 중앙 정렬 */
+    }
+
+    .progress-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px; /* 아래 여백 설정 */
+      background-color: rgba(255, 0, 0, 0.1); /* 연한 빨간색 배경 */
+      padding: 5px; /* 내부 여백 설정 */
+      border-radius: 5px; /* 모서리 둥글게 설정 */
+    }
+
+    .progress-title {
+      color: white; /* 글자색 설정 */
+      background-color: red; /* 배경색 설정 */
+      padding: 5px; /* 내부 여백 설정 */
+      border-radius: 5px; /* 모서리 둥글게 설정 */
+      margin-right: 10px; /* 오른쪽 여백 설정 */
+    }
+
+    .progress-label, .progress-count {
+      font-size: 14px; /* 글자 크기 설정 */
+      margin-right: 10px; /* 아이템 간 간격 조정 */
+    }
+
+    .progress-label {
+      color: red; /* 진행도 글자색을 빨간색으로 설정 */
+    }
+
+    .progress-count {
+      color: blue; /* 수행한 항목 글자색을 파란색으로 설정 */
     }
   </style>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -61,24 +97,95 @@
         <input type="text" id="datepicker">
         <button class="search-button" type="button">검색</button>
       </div>
+
+
+
+
+
     </div>
+
 
     <div style="display: flex; justify-content: space-between; max-width: 100%;">
 
       <!-- 첫 번째 차트 -->
       <div class="chart-container">
         <canvas id="myChart1" style="max-width: 100%;"></canvas>
+        <div class="progress-info">
+          <div class="progress-title">진행현황</div>
+          <div class="progress-count">8/10</div>
+          <div class="progress-label">80%</div>
+        </div>
       </div>
 
       <!-- 두 번째 차트 -->
       <div class="chart-container">
         <canvas id="myChart2" style="max-width: 100%;"></canvas>
+        <div class="progress-info">
+          <div class="progress-title">진행현황</div>
+          <div class="progress-count">9/10</div>
+          <div class="progress-label">90%</div>
+        </div>
+        <p style="font-size: 24px; margin-top: 20px; color: red; font-weight: bold;">월간 인증 진척률 추이</p>
+        <!-- 새로운 선 그래프 추가 -->
+        <div class="line-container">
+          <canvas id="myLineChart" style="max-width: 100%;"></canvas>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              // 선 그래프 데이터 및 옵션 설정
+              const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+              const data = {
+                labels: labels,
+                datasets: [{
+                  label: 'My New Dataset',
+                  data: [65, 59, 80, 81, 56, 55, 40],
+                  fill: false,
+                  borderColor: 'rgb(75, 192, 192)',
+                  tension: 0.1
+                }]
+              };
+
+              const config = {
+                type: 'line',
+                data: data,
+                options: {
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: '새로운 선 그래프',
+                      font: {
+                        size: 16
+                      }
+                    },
+                    legend: {
+                      position: 'bottom'
+                    }
+                  },
+                  animation: false
+                }
+              };
+
+              // 새로운 선 그래프를 위한 캔버스 요소 선택
+              var ctx = document.getElementById('myLineChart').getContext('2d');
+              // Chart.js를 사용하여 새로운 선 그래프 렌더링
+              new Chart(ctx, config);
+            });
+          </script>
+        </div>
       </div>
 
       <!-- 3 번째 차트 -->
       <div class="chart-container">
         <canvas id="myChart3" style="max-width: 100%;"></canvas>
+        <div class="progress-info">
+          <div class="progress-title">진행현황</div>
+          <div class="progress-count">7/10</div>
+          <div class="progress-label">72%</div>
+        </div>
       </div>
+
+
+
 
     </div>
 
