@@ -28,14 +28,10 @@
     }
 
     .chart-container {
-      flex: 1;
+      width: 300px; /* 원하는 가로 크기 */
+      height: 300px;
       padding: 0 10px;
       margin-top: 20px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
-      text-align: center; /* 그래프 아래에 텍스트 중앙 정렬 */
-    }
-
-    .line-container {
-      margin-top: 90px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
       text-align: center; /* 그래프 아래에 텍스트 중앙 정렬 */
     }
 
@@ -73,14 +69,13 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
-    $( function() {
-      $( "#datepicker" ).datepicker();
-    } );
+    $(function () {
+      $("#datepicker").datepicker();
+    });
 
-    // 추가된 JavaScript: 검색 버튼 클릭 시 datepicker를 열도록 설정
-    $( function() {
-      $( ".search-button" ).click( function() {
-        $( "#datepicker" ).datepicker( "show" );
+    $(function () {
+      $(".search-button").click(function () {
+        $("#datepicker").datepicker("show");
       });
     });
   </script>
@@ -97,19 +92,13 @@
         <input type="text" id="datepicker">
         <button class="search-button" type="button">검색</button>
       </div>
-
-
-
-
-
     </div>
 
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 100%;">
 
-    <div style="display: flex; justify-content: space-between; max-width: 100%;">
-
-      <!-- 첫 번째 차트 -->
-      <div class="chart-container">
-        <canvas id="myChart1" style="max-width: 100%;"></canvas>
+      <!-- 첫 번째 도넛 그래프 -->
+      <div class="chart-container" style="flex-basis: calc(33.33% - 20px); margin-bottom: 20px;">
+        <canvas id="myChart1"></canvas>
         <div class="progress-info">
           <div class="progress-title">진행현황</div>
           <div class="progress-count">8/10</div>
@@ -117,66 +106,19 @@
         </div>
       </div>
 
-      <!-- 두 번째 차트 -->
-      <div class="chart-container">
-        <canvas id="myChart2" style="max-width: 100%;"></canvas>
+      <!-- 두 번째 도넛 그래프 -->
+      <div class="chart-container" style="flex-basis: calc(33.33% - 20px); margin-bottom: 20px;">
+        <canvas id="myChart2"></canvas>
         <div class="progress-info">
           <div class="progress-title">진행현황</div>
           <div class="progress-count">9/10</div>
           <div class="progress-label">90%</div>
         </div>
-        <p style="font-size: 24px; margin-top: 20px; color: red; font-weight: bold;">월간 인증 진척률 추이</p>
-        <!-- 새로운 선 그래프 추가 -->
-        <div class="line-container">
-          <canvas id="myLineChart" style="max-width: 100%;"></canvas>
-
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              // 선 그래프 데이터 및 옵션 설정
-              const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-              const data = {
-                labels: labels,
-                datasets: [{
-                  label: 'My New Dataset',
-                  data: [65, 59, 80, 81, 56, 55, 40],
-                  fill: false,
-                  borderColor: 'rgb(75, 192, 192)',
-                  tension: 0.1
-                }]
-              };
-
-              const config = {
-                type: 'line',
-                data: data,
-                options: {
-                  plugins: {
-                    title: {
-                      display: true,
-                      text: '새로운 선 그래프',
-                      font: {
-                        size: 16
-                      }
-                    },
-                    legend: {
-                      position: 'bottom'
-                    }
-                  },
-                  animation: false
-                }
-              };
-
-              // 새로운 선 그래프를 위한 캔버스 요소 선택
-              var ctx = document.getElementById('myLineChart').getContext('2d');
-              // Chart.js를 사용하여 새로운 선 그래프 렌더링
-              new Chart(ctx, config);
-            });
-          </script>
-        </div>
       </div>
 
-      <!-- 3 번째 차트 -->
-      <div class="chart-container">
-        <canvas id="myChart3" style="max-width: 100%;"></canvas>
+      <!-- 세 번째 도넛 그래프 -->
+      <div class="chart-container" style="flex-basis: calc(33.33% - 20px); margin-bottom: 20px;">
+        <canvas id="myChart3"></canvas>
         <div class="progress-info">
           <div class="progress-title">진행현황</div>
           <div class="progress-count">7/10</div>
@@ -184,15 +126,17 @@
         </div>
       </div>
 
-
-
+      <!-- 선 그래프 -->
+      <div class="chart-container" style="flex-basis: 100%; margin-top: 50px;">
+        <canvas id="myLineChart"></canvas>
+      </div>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const data1 = {
+        const circle_data1 = {
           labels: [
             '진행율',
             '미진행율',
@@ -208,11 +152,11 @@
           }]
         };
 
-        const config1 = {
+        const circle_config1 = {
           type: 'doughnut',
-          data: data1,
+          data: circle_data1,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션(숫자가 높을수록 얇음)
+            cutout: 80,
             plugins: {
               title: {
                 display: true,
@@ -225,11 +169,11 @@
                 position: 'bottom'
               }
             },
-            animation: false //애니메이션 설정
+            animation: false
           }
         };
 
-        const data2 = {
+        const circle_data2 = {
           labels: [
             '진행율',
             '미진행율',
@@ -245,11 +189,11 @@
           }]
         };
 
-        const config2 = {
+        const circle_config2 = {
           type: 'doughnut',
-          data: data2,
+          data: circle_data2,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션(숫자가 높을수록 얇음)
+            cutout: 80,
             plugins: {
               title: {
                 display: true,
@@ -262,11 +206,11 @@
                 position: 'bottom'
               }
             },
-            animation: false //애니메이션 설정
+            animation: false
           }
         };
 
-        const data3 = {
+        const circle_data3 = {
           labels: [
             '진행율',
             '미진행율',
@@ -282,11 +226,11 @@
           }]
         };
 
-        const config3 = {
+        const circle_config3 = {
           type: 'doughnut',
-          data: data3,
+          data: circle_data3,
           options: {
-            cutout: 80, // 도넛의 두께를 조절하는 옵션(숫자가 높을수록 얇음)
+            cutout: 80,
             plugins: {
               title: {
                 display: true,
@@ -299,18 +243,69 @@
                 position: 'bottom'
               }
             },
-            animation: false //애니메이션 설정
+            animation: false
           }
         };
 
         var ctx1 = document.getElementById('myChart1').getContext('2d');
-        new Chart(ctx1, config1);
+        new Chart(ctx1, circle_config1);
 
         var ctx2 = document.getElementById('myChart2').getContext('2d');
-        new Chart(ctx2, config2);
+        new Chart(ctx2, circle_config2);
 
         var ctx3 = document.getElementById('myChart3').getContext('2d');
-        new Chart(ctx3, config3);
+        new Chart(ctx3, circle_config3);
+
+        const labels = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+        const line_data1 = {
+          labels: labels,
+          datasets: [{
+            label: '관리체계',
+            data: [23, 32, 39, 44, 50, 55, 57, 59, 60, 66, 70, 72],
+            fill: false,
+            borderColor: 'rgb(252,4,49)',
+            tension: 0.1
+          },
+            {
+              label: '보호대책',
+              data: [20, 30, 30, 40, 50, 60, 65, 70, 75, 80, 85, 90],
+              fill: false,
+              borderColor: 'rgb(255,218,75)',
+              tension: 0.1
+            },
+            {
+              label: '개인정보보호',
+              data: [0, 14, 28, 32, 38, 42, 50, 54, 64, 74, 89, 95],
+              fill: false,
+              borderColor: 'rgb(109,189,14)',
+              tension: 0.1
+            },
+          ]
+        };
+
+        const line_config1 = {
+          type: 'line',
+          data: line_data1,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: '월간 인증 진척률 추이',
+                font: {
+                  size: 24,
+                },
+                color: "red"
+              },
+              legend: {
+                display: false
+              }
+            },
+            animation: false
+          }
+        };
+
+        var line_ctx1 = document.getElementById('myLineChart').getContext('2d');
+        new Chart(line_ctx1, line_config1);
       });
     </script>
 
