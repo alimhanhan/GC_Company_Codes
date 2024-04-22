@@ -10,51 +10,64 @@
     }
 
     #datepicker-container {
+      margin-left: 20px;
       display: flex;
+      height: 25px;
       align-items: center;
     }
 
     #datepicker {
       margin-right: 10px; /* Datepicker 오른쪽 여백 설정 */
+      height: 25px;
     }
 
     .search-button {
+      height: 25px;
       border: 1px solid red;
       background-color: transparent;
       color: red;
-      padding: 3px 12px;
+      padding: 0 12px;
       cursor: pointer;
+      text-align: center;
       border-radius: 5px; /* 모서리를 10픽셀만큼 둥글게 설정 */
     }
 
     .chart-container {
       width: 300px; /* 원하는 가로 크기 */
+      align-items: center;
+      justify-content: center; /* 가로로 가운데 정렬 */
       height: 300px;
-      padding: 0 10px;
+      padding: 0 40px;
       margin-top: 20px; /* 추가된 차트와 "Dash Board" 사이의 간격 조정 */
       text-align: center; /* 그래프 아래에 텍스트 중앙 정렬 */
     }
 
     .progress-info {
-      display: flex;
+      width: 200px;
+      height: 40px;
       align-items: center;
-      margin-bottom: 5px; /* 아래 여백 설정 */
-      background-color: rgba(255, 0, 0, 0.1); /* 연한 빨간색 배경 */
-      padding: 5px; /* 내부 여백 설정 */
-      border-radius: 5px; /* 모서리 둥글게 설정 */
+      justify-content: center; /* 가로로 가운데 정렬 */
+      display: flex;
+      margin: 0 auto; /* 가운데 정렬을 위한 margin 설정 */
+      margin-bottom: 5px;
+      background-color: rgba(255, 0, 0, 0.1);
+      padding: 5px;
+      border-radius: 5px;
     }
 
+
     .progress-title {
+      font-size: 14px;
       color: white; /* 글자색 설정 */
       background-color: red; /* 배경색 설정 */
       padding: 5px; /* 내부 여백 설정 */
       border-radius: 5px; /* 모서리 둥글게 설정 */
-      margin-right: 10px; /* 오른쪽 여백 설정 */
+      margin-right: 20px; /* 오른쪽 여백 설정 */
     }
 
     .progress-label, .progress-count {
       font-size: 14px; /* 글자 크기 설정 */
-      margin-right: 10px; /* 아이템 간 간격 조정 */
+      margin-right: 20px; /* 아이템 간 간격 조정 */
     }
 
     .progress-label {
@@ -69,6 +82,28 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
+    $(function() {
+      $(".search-button").hover(
+              function() {
+                // 마우스 오버 시
+                $(this).css({
+                  "border-color": "white",
+                  "color": "white",
+                  "background-color": "red"
+                });
+              },
+              function() {
+                // 마우스 아웃 시
+                $(this).css({
+                  "border-color": "red",
+                  "color": "red",
+                  "background-color": "transparent"
+                });
+              }
+      );
+    });
+
+
     $(function () {
       $("#datepicker").datepicker();
     });
@@ -87,7 +122,7 @@
   <div th:replace="fragments/sidebar :: sidebar"></div>
   <div class="content p-4 main-contents" style="overflow-y: scroll">
     <div class="header-container">
-      <h1 style="color: red; font-size: 24px;">Dash Board</h1>
+      <h1 style="color: red; font-size: 24px; justify-content: center; align-items: center;">Dash Board</h1>
       <div id="datepicker-container">
         <input type="text" id="datepicker">
         <button class="search-button" type="button">검색</button>
@@ -127,7 +162,7 @@
       </div>
 
       <!-- 선 그래프 -->
-      <div class="chart-container" style="flex-basis: 100%; margin-top: 50px;">
+      <div class="chart-container" style="flex-basis: calc(100% - 0px); margin-top: 50px;">
         <canvas id="myLineChart"></canvas>
       </div>
 
