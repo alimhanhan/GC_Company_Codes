@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$/frontend-master/src/main" libraries="{chart.js}" />
+    <file url="file://$PROJECT_DIR$" libraries="{all}" />
+    <file url="file://$PROJECT_DIR$/frontend-master" libraries="{all}" />
+    <file url="file://$PROJECT_DIR$/frontend-master/src/main" libraries="{all, jquery-3.6.0, jquery-ui}" />
+    <file url="file://$PROJECT_DIR$/frontend-master/src/test" libraries="{all}" />
   </component>
 </project>

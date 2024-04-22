@@ -6,14 +6,14 @@
   <style>
     .header-container {
       display: flex;
-      align-items: center;
+      justify-content: space-between;
     }
 
     #datepicker-container {
-      margin-left: 20px;
+      position: absolute; right: calc(20% - 80px);
       display: flex;
+      margin-top: 20px;
       height: 25px;
-      align-items: center;
     }
 
     #datepicker {
@@ -81,6 +81,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <script>
     $(function() {
       $(".search-button").hover(
@@ -124,6 +125,7 @@
     <div class="header-container">
       <h1 style="color: red; font-size: 24px; justify-content: center; align-items: center;">Dash Board</h1>
       <div id="datepicker-container">
+        <i class="fas fa-calendar-alt" style="margin-right: 5px; width: 23px; height: 23px;"></i>
         <input type="text" id="datepicker">
         <button class="search-button" type="button">검색</button>
       </div>
