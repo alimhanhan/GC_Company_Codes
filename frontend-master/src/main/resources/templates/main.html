@@ -7,13 +7,14 @@
     .header-container {
       display: flex;
       justify-content: space-between;
+      position: relative;
     }
 
     #datepicker-container {
-      position: absolute; right: calc(20% - 80px);
       display: flex;
-      margin-top: 20px;
+      margin-top: 0px;
       height: 25px;
+      margin-left: 50%;
     }
 
     #datepicker {
@@ -70,6 +71,13 @@
       margin-right: 20px; /* 아이템 간 간격 조정 */
     }
 
+    .line-chart-container {
+      text-align: center; /* 가로 방향 가운데 정렬 */
+      display: flex; /* 세로 중앙 정렬을 위해 flex 설정 추가 */
+      align-items: center; /* 세로 중앙 정렬 */
+    }
+
+
     .progress-label {
       color: red; /* 진행도 글자색을 빨간색으로 설정 */
     }
@@ -124,11 +132,11 @@
   <div class="content p-4 main-contents" style="overflow-y: scroll">
     <div class="header-container">
       <h1 style="color: red; font-size: 24px; justify-content: center; align-items: center;">Dash Board</h1>
-      <div id="datepicker-container">
-        <i class="fas fa-calendar-alt" style="margin-right: 5px; width: 23px; height: 23px;"></i>
-        <input type="text" id="datepicker">
-        <button class="search-button" type="button">검색</button>
-      </div>
+    </div>
+    <div id="datepicker-container">
+      <i class="fas fa-calendar-alt" style="margin-right: 5px; width: 23px; height: 23px;"></i>
+      <input type="text" id="datepicker">
+      <button class="search-button" type="button">검색</button>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 100%;">
@@ -161,12 +169,14 @@
           <div class="progress-count">7/10</div>
           <div class="progress-label">72%</div>
         </div>
+
       </div>
 
       <!-- 선 그래프 -->
-      <div class="chart-container" style="flex-basis: calc(100% - 0px); margin-top: 50px;">
+      <div class="line-chart-container chart-container" style="flex-basis: 100%; margin-top: 50px;">
         <canvas id="myLineChart"></canvas>
       </div>
+
 
     </div>
 
@@ -324,6 +334,18 @@
           type: 'line',
           data: line_data1,
           options: {
+            scales: {
+              y: {
+                ticks: {
+                  suggestedMin: 0, // Set the minimum value
+                  suggestedMax: 100, // Set the maximum value
+                  stepSize: 50, // Set the interval between ticks
+                  callback: function(value, index, values) {
+                    return value === 0 || value === 50 || value === 100 ? value : '';
+                  }
+                }
+              }
+            },
             plugins: {
               title: {
                 display: true,
