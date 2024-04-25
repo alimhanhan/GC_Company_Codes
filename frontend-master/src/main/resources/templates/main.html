@@ -77,7 +77,6 @@
       align-items: center; /* 세로 중앙 정렬 */
     }
 
-
     .progress-label {
       color: red; /* 진행도 글자색을 빨간색으로 설정 */
     }
@@ -334,6 +333,7 @@
           type: 'line',
           data: line_data1,
           options: {
+            maintainAspectRatio: false, // 세로 길이 유지 X
             scales: {
               y: {
                 ticks: {
